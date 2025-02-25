@@ -1,14 +1,31 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Вход в систмеу{% endblock title %}
+{% block title %}Вход в систему{% endblock title %}
 
 {% block body %}
-  <div class="container">
-    <h2>Вход в систему</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form }}
-      <button type="submit">Войти</button>
-    </form>
-  </div>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 rounded" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4">Вход в систему</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Войти</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <strong>
+                <a href="{% url 'reg' %}" class="text-decoration-none">Зарегистрироваться</a>
+            </strong>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -97,6 +97,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+MESSAGE_SEND_COOLDOWN = int(os.getenv("MESSAGE_SEND_COOLDOWN", 15))  
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
