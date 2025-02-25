@@ -1,0 +1,28 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}chat{% endblock title %}
+
+{% block body %}
+    <div class="chat-container">
+        <strong>USER: {{ user.username }}</strong> + 
+        <strong>USER: {{ user.email }}</strong>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Отправить</button>
+            {{ form.name }}
+            {{ form.message }}
+            
+            
+        </form>  
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message">
+                    <strong>{{ message.name }}</strong>: {{ message.message }} <br>
+                    <a href="{% url "message_detail" pk=message.id %}">смотреть подробнее</a>
+                </div>
+            {% endfor %}
+        </div>
+        <p>{{ error }}</p>
+    </div>
+{% endblock body %}

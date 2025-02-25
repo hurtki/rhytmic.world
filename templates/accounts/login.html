@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Вход в систмеу{% endblock title %}
+
+{% block body %}
+  <div class="container">
+    <h2>Вход в систему</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit">Войти</button>
+    </form>
+  </div>
+{% endblock %}
