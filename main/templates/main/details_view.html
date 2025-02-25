@@ -1,13 +1,15 @@
 {% extends "main/layout.html" %}
-{% load static %}
-{% block title %}chat{% endblock title %}
+{% block title %}Детали сообщения{% endblock title %}
 
 {% block body %}
-    <div class="detail_view_div">
-        <h1>{{ message.name }}</h1>
-        <h4>{{ message.message }}</h4>
-        <p>Дата публикации: {{ message.created_at }}</p>
-        <strong><a href="{% url "message_update" pk=message.id %}">Отредактировать сообщение</a></strong>
-        <strong><a href="{% url "main_chat" %}">Вернуться на главную</a></strong>
+    <div class="container mt-4">
+        <div class="card shadow-sm p-4">
+            <div class="card-body">
+                <h1 class="card-title">{{ message.name }}</h1>
+                <h4 class="card-text text-muted">{{ message.message }}</h4>
+                <p class="text-secondary">Дата публикации: {{ message.created_at }}</p>
+                <a href="{% url 'main_chat' %}" class="btn btn-primary">Вернуться на главную</a>
+            </div>
+        </div>
     </div>
 {% endblock body %}

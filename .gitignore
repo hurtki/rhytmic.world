@@ -3,3 +3,5 @@ db.sqlite3
 logs/
 config.json
 .env
+echo -e "*.pyc\n__pycache__/\ndb.sqlite3" >> .gitignore
+git rm --cached -r accounts/__pycache__/ chat/__pycache__/ main/__pycache__/ main/migrations/__pycache__/ db.sqlite3
